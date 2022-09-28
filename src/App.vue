@@ -7,8 +7,8 @@ import { RouterLink, RouterView } from "vue-router";
 
 
 <template>
-  <header class="h-[100px] w-full bg-[#6FCF97]">
-
+  <header class="h-[50px] w-full bg-[#6FCF97] font-serif text-4xl font-[500] flex items-center justify-center">
+    Cognicenter
   </header>
 
   <RouterView />
@@ -18,9 +18,3 @@ import { RouterLink, RouterView } from "vue-router";
 
 
 
-
-
-
-<style scoped>
-
-</style>
