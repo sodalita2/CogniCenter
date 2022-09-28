@@ -69,7 +69,7 @@ function ShowCard(e){
         console.log($(e.currentTarget).siblings()[0].id);
         $(e.currentTarget).css("display","none");
         if ($(e.currentTarget).siblings()[0].id == ClickedList[0].id){
-            console.log("peidei");
+            console.log("iguais");
         }else{
 
         }
