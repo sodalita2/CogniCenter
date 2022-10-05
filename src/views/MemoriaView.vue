@@ -3,25 +3,83 @@ import { ref } from 'vue';
 import BotaoRetornar from '../components/BotaoRetornar.vue';
 import $ from 'jquery';
 
+const TimerObj = ref();
+
 function Reset(){
+    clearInterval(TimerObj.value);
     LastTime.value = "";
     TimerRef.value = "00:00";
     Seconds.value = 0;
     Minutes.value = 0;
     Acertos.value = 0;
+    LastAcertos.value = 0;
+    BrokeRecord.value = false;
 }
 
-
+const BrokeRecord = ref(false);
+var BestTime = ref("");
+var BestAcertos = ref(0);
 var LastTime = ref("");
+var LastAcertos = ref(0);
 var ActualState = ref("Start");
 function StartGame(){
     Reset();
     ActualState.value = "Jogando";
-    Timer();
+    TimerObj.value = Timer();
 }
 function StopGame(){
     ActualState.value = "Fim";
     LastTime.value = TimerRef.value;
+    LastAcertos.value = Acertos.value;
+    if (localStorage.getItem("BestTime") == null){
+        BestTime.value = LastTime.value;
+        BestAcertos.value = LastAcertos.value;
+        localStorage.setItem("BestTime",LastTime.value);
+        localStorage.setItem("BestAcertos",LastAcertos.value);
+        BrokeRecord.value = true;
+    }else{
+        let LocalBestTime = localStorage.getItem("BestTime");
+        let LocalBestAcertos = parseInt(localStorage.getItem("BestAcertos"));
+        if (LastAcertos > LocalBestAcertos){
+            BestTime.value = LastTime.value;
+            BestAcertos.value = LastAcertos.value;
+            localStorage.setItem("BestTime",LastTime.value);
+            localStorage.setItem("BestAcertos",LastAcertos.value);
+            BrokeRecord.value = true;
+        }else if (LastAcertos == LocalBestAcertos){
+            let SplitLast = LastTime.value.split(":");
+            let LastMinutos = SplitLast[0];
+            let LastSegundos = SplitLast[1];
+
+            let SplitLocal = LocalBestTime.value.split(":");
+            let LocalMinutos = SplitLocal[0];
+            let LocalSegundos = SplitLocal[1];
+
+            if (parseInt(LastMinutos) < parseInt(LocalMinutos)){
+                BestTime.value = LastTime.value;
+                BestAcertos.value = LastAcertos.value;
+                localStorage.setItem("BestTime",LastTime.value);
+                localStorage.setItem("BestAcertos",LastAcertos.value);
+                BrokeRecord.value = true;
+            }
+            else if (parseInt(LastMinutos) == parseInt(LocalMinutos)){
+                if (parseInt(LastSegundos) < parseInt(LocalSegundos)){
+                    BestTime.value = LastTime.value;
+                    BestAcertos.value = LastAcertos.value;
+                    localStorage.setItem("BestTime",LastTime.value);
+                    localStorage.setItem("BestAcertos",LastAcertos.value);
+                    BrokeRecord.value = true;
+                }else{
+                    BestTime.value = LocalBestTime;
+                    BestAcertos.value = LocalBestAcertos;
+                }
+            }else{
+                BestTime.value = LocalBestTime;
+                BestAcertos.value = LocalBestAcertos;
+            }
+        }
+    }
+    clearInterval(TimerObj.value);
 }
 function RestartGame(){
     ActualState.value = "Start";
@@ -29,7 +87,7 @@ function RestartGame(){
 
 
 
-var numero = ref(1);
+
 
 const Bichos = ['burro','cachorro','cervo','elefante','esquilo','girafa','guaxinim','leao','macaco','zebra'];
 
@@ -65,9 +123,7 @@ function GeneratePosition(){
     }
 }
 
-function PlaceCard(BixoNome){
 
-}
 
 for (let i=0;i<Bichos.length;i++){
     let Position = GeneratePosition();
@@ -84,7 +140,7 @@ const TimerRef = ref("00:00");
 const Seconds = ref(0);
 const Minutes = ref(0);
 function Timer(){
-    setInterval(() => {
+    var TimerInterval = setInterval(() => {
         Seconds.value += 1;
         if (Seconds.value == 60){
             Minutes.value += 1;
@@ -99,27 +155,23 @@ function Timer(){
             TimerRef.value = `${Minutes.value}:0${Seconds.value}`;
         }
     }, 1000);
-    
+    return TimerInterval;
 }
 
 
 
 
-console.log(CardsArray);
+//console.log(CardsArray);
 
 var Acertos = ref(0);
 var ClickedOnce = false;
 var ClickedList = [];
 function ShowCard(e){
-    console.log($(e.currentTarget).siblings()[0]);
-    console.log(ClickedList);
     if (!ClickedOnce && $(e.currentTarget.nodeName) !== "img"){
         $(e.currentTarget).css("display","none");
         ClickedList.push($(e.currentTarget).siblings()[0]);
         ClickedOnce = !ClickedOnce;
     }else if (ClickedOnce){
-        console.log($(e.currentTarget).siblings()[0].id);
-        console.log(e.currentTarget.nodeName);
         $(e.currentTarget).css("display","none");
         let SecondDiv = $(e.currentTarget);
         let FirstDiv = ClickedList[0];
@@ -134,6 +186,9 @@ function ShowCard(e){
         ClickedList = [];
         ClickedOnce = !ClickedOnce;
     }
+    if (Acertos.value == 10){
+        StopGame();
+    }
 }
 
 </script>
@@ -144,7 +199,7 @@ function ShowCard(e){
     <div class="h-[8%] w-full bg-[#91f58c] flex flex-row justify-center items-center">
         <button v-if="ActualState == `Start`" @click="StartGame" class="h-[45px] w-[150px] ml-12 bg-[#F9F9F9] font-bold border-2">Iniciar Jogo</button>
         <button v-else-if="ActualState == `Jogando`" @click="StopGame" class="h-[45px] w-[150px] ml-12 bg-[#F9F9F9] font-bold border-2">Parar Jogo</button>
-        <button v-else-if="ActualState == `Fim`" @click="RestartGame" class="h-[45px] w-[150px] ml-12 bg-[#F9F9F9] font-bold border-2">Recomeçar Jogo</button>
+        <button v-else-if="ActualState == `Fim`" @click="RestartGame" class="h-[45px] w-[150px] ml-12 bg-[#F9F9F9] font-bold border-2">Recomeçar</button>
         <div class="h-[70px] flex flex-row w-[400px] items-center ml-12 border-4">
             <!-- Timer Container -->
             <div class="text-3xl">
@@ -155,13 +210,15 @@ function ShowCard(e){
             <!-- Score Container -->
             <div class="text-2xl ml-24">
                 <span v-if="ActualState == `Start`">Acertos: 0 de 10</span>
-                <span v-else-if="ActualState == `Jogando` || ActualState == `Fim`">Acertos: {{Acertos}} de 10</span>
+                <span v-else-if="ActualState == `Jogando`">Acertos: {{Acertos}} de 10</span>
+                <span v-else-if="ActualState == `Fim`">Acertos: {{LastAcertos}} de 10</span>
             </div>
         </div>
     </div>
     <div class="flex-1 w-full flex flex-col justify-center items-center">
+        <!-- Condicao Parar o jogo em 10 acertos -->
+        <!--<div v-if="(ActualState == `Fim` || Acertos == 10) ? StopGame() : ``"></div>-->
         <!-- Jogo Container -->
-
         <!-- Jogando -->
         <div v-if="ActualState == `Jogando`" class="h-[97%] w-[80%] border-2 border-black flex flex-col justify-center items-center">
             <div v-for="item in CardsArray" class="h-1/4 w-full flex flex-row justify-center items-center">
@@ -170,6 +227,11 @@ function ShowCard(e){
                     <div @click="ShowCard" class="h-full w-full absolute top-0 left-0 bg-black"></div>
                 </div>
             </div>
+        </div>
+        <div v-else-if="ActualState == `Fim`" class="h-[80%] w-[70%] bg-[#91f58c] flex flex-col">
+            <span class="ml-12 mt-12 text-4xl font-[400]">Resultado Atual: {{LastAcertos}} acertos em {{LastTime}}</span>
+            <span class="ml-12 mt-12 text-4xl font-[400]">Melhor Resultado: {{BestAcertos}} acertos em {{BestTime}}</span>
+            <span v-if="BrokeRecord" class="ml-12 mt-12 text-7xl font-bold"> Novo Recorde!</span>
         </div>
 
 
