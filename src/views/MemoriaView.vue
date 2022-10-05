@@ -32,11 +32,13 @@ function StopGame(){
     LastTime.value = TimerRef.value;
     LastAcertos.value = Acertos.value;
     if (localStorage.getItem("BestTime") == null){
-        BestTime.value = LastTime.value;
-        BestAcertos.value = LastAcertos.value;
-        localStorage.setItem("BestTime",LastTime.value);
-        localStorage.setItem("BestAcertos",LastAcertos.value);
-        BrokeRecord.value = true;
+        if (LastAcertos > 0){
+            BestTime.value = LastTime.value;
+            BestAcertos.value = LastAcertos.value;
+            localStorage.setItem("BestTime",LastTime.value);
+            localStorage.setItem("BestAcertos",LastAcertos.value);
+            BrokeRecord.value = true;
+        }
     }else{
         let LocalBestTime = localStorage.getItem("BestTime");
         let LocalBestAcertos = parseInt(localStorage.getItem("BestAcertos"));
