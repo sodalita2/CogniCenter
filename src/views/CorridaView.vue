@@ -64,6 +64,8 @@ for (let i=0;i<Columns;i++){
 
 console.log(DashboardArray);
 
+
+const CounterN = ref(0);
 </script>    
 
 <template>
@@ -101,15 +103,25 @@ console.log(DashboardArray);
             <!-- Dashboard Div -->
             <div class="h-[75%] w-full">
                 <div v-for="x in DashboardArray" class="h-1/3 w-full flex flex-row">
-                    <div v-for="y in x" class="h-full w-1/6 border-2 border-black">
-                        {{y}}
+                    <div v-for="(y,key) in x" class="h-full w-1/6 flex justify-center items-center border-2 border-black">
+                        <div class="h-[60%] w-1/2 rounded-[50%] bg-[#b8b6b6] flex justify-center items-center">
+                            <div class="h-[75%] w-[75%] rounded-[50%] bg-[#999797] flex justify-center items-center">
+                                <span v-if="y == `black`">{{key}}</span>
+                                <span v-else-if="y == `red`">{{key}}</span>
+                                <span v-else-if="y == `white`">{{key}}</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
             <!-- Corrida Div -->
             <div class="h-[25%] w-full flex flex-col justify-center items-center">
                 <div v-for="Carro in Cores" class="h-[60px] w-[70%] flex flex-row border-2 border-black">
-                    <div v-for="Posicao in PosicoesCorrida" class="h-full w-[15%] border-2 border-[red]"></div>
+                    <div v-for="Posicao in PosicoesCorrida" class="h-full w-[15%] border-2 border-[red]">
+                        <span v-if="Posicao == 1">Início</span>
+                        <span v-else-if="Posicao == 7">Chegada</span>
+                        <span v-else="">{{Posicao}}</span>    
+                    </div>
                 </div>
             </div>
         </div>
