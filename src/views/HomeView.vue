@@ -3,7 +3,7 @@
 </script>
 
 <template>
-  <div class="flex-1 w-full flex-col">
+  <div class="h-full w-full flex-col">
     <!-- Apresentacao -->
     <div class="h-[200px] MaxW-700px:h-[250px] w-full bg-[#6FCF97] flex flex-col items-center justify-center text-2xl text-center">
       <span>A CogniCenter é uma plataforma de jogos para exercício cognitivo,<br>
@@ -12,7 +12,7 @@
     em Sistemas de Computação - Universidade Federal Fluminense</span>
     </div>
     <!-- Jogos Container  -->
-    <div class="h-[80%] w-full flex flex-row justify-center items-center">
+    <div class="h-[60%] border-2 border-black w-full flex flex-row justify-center items-center">
       <RouterLink to="Memoria" class="h-[450px] w-[270px] rounded-lg border-2 border-black flex flex-col ml-12">
         <div class="h-[30%] w-full flex justify-center items-center text-2xl font-bold">Jogo da Memória</div>
         <div class="h-[70%] w-full bg-black"></div>

@@ -198,11 +198,11 @@ function ShowCard(e){
 <template>
     <BotaoRetornar/>
     <!-- Game Stats -->
-    <div class="h-[8%] w-full bg-[#91f58c] flex flex-row justify-center items-center">
-        <button v-if="ActualState == `Start`" @click="StartGame" class="h-[45px] w-[150px] ml-12 bg-[#F9F9F9] font-bold border-2">Iniciar Jogo</button>
-        <button v-else-if="ActualState == `Jogando`" @click="StopGame" class="h-[45px] w-[150px] ml-12 bg-[#F9F9F9] font-bold border-2">Parar Jogo</button>
-        <button v-else-if="ActualState == `Fim`" @click="RestartGame" class="h-[45px] w-[150px] ml-12 bg-[#F9F9F9] font-bold border-2">Recomeçar</button>
-        <div class="h-[70px] flex flex-row w-[400px] items-center ml-12 border-4">
+    <div class="h-[70px] w-full bg-[#91f58c] flex flex-row justify-center items-center">
+        <button v-if="ActualState == `Start`" @click="StartGame" class="h-[45px] w-[150px] MaxW-700px:h-[60px] MaxW-700px:w-[200px] ml-12 MaxW-700px:ml-2 bg-[#F9F9F9] font-bold border-2">Iniciar Jogo</button>
+        <button v-else-if="ActualState == `Jogando`" @click="StopGame" class="h-[45px] w-[150px] MaxW-700px:h-[60px] MaxW-700px:w-[200px] ml-12 MaxW-700px:ml-2 bg-[#F9F9F9] font-bold border-2">Parar Jogo</button>
+        <button v-else-if="ActualState == `Fim`" @click="RestartGame" class="h-[45px] w-[150px] MaxW-700px:h-[60px] MaxW-700px:w-[200px] ml-12 MaxW-700px:ml-2 bg-[#F9F9F9] font-bold border-2">Recomeçar</button>
+        <div class="h-[70px] flex flex-row w-[400px] items-center ml-12 MaxW-700px:ml-6">
             <!-- Timer Container -->
             <div class="text-3xl">
                 <span v-if="ActualState == `Start`">00:00</span>
@@ -210,7 +210,7 @@ function ShowCard(e){
                 <span v-else-if="ActualState == `Fim`">{{LastTime}}</span>
             </div>
             <!-- Score Container -->
-            <div class="text-2xl ml-24">
+            <div class="text-2xl ml-24 MaxW-700px:ml-6">
                 <span v-if="ActualState == `Start`">Acertos: 0 de 10</span>
                 <span v-else-if="ActualState == `Jogando`">Acertos: {{Acertos}} de 10</span>
                 <span v-else-if="ActualState == `Fim`">Acertos: {{LastAcertos}} de 10</span>
