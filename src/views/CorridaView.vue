@@ -10,13 +10,42 @@ const PlayerColor = ref("");
 
 const ActualState = ref("Start");
 
+const Winner = ref("");
+const PlayerWon = ref(false);
+
 function StartGame(e){
     PlayerColor.value = $(e.currentTarget).attr("id");
     ActualState.value = "Jogando";
 }
-function EndGame(){
-    
+function EndGame(WinnerString){
+    setTimeout(() => {
+        ActualState.value = "Fim";
+        if (WinnerString == "policia"){
+            Winner.value = "Policia";
+        }else if (WinnerString == "bombeiro"){
+            Winner.value = "Bombeiro";
+        }else if (WinnerString == "ambulancia"){
+            Winner.value = "Ambulancia";
+        }
+
+        if (PlayerColor.value == WinnerString){
+            PlayerWon.value = true;
+        }
+    }, 850);
 }
+function RestartGame(){
+    ActualState.value = "Start";
+    Winner.value = "";
+    PlayerWon.value = false;
+    Blacks.value = 0;
+    Reds.value = 0;
+    Whites.value = 0;
+    PoliciaPosition.value = 1;
+    BombeiroPosition.value = 1;
+    AmbulanciaPosition.value = 1;
+    DashboardArray = [];
+}
+
 
 const Blacks = ref(0);
 const Reds = ref(0);
@@ -59,6 +88,22 @@ function MoveCar(e){
     $(e.currentTarget).css("background-color","#5e5c5c");
     $(e.currentTarget).children().eq(0).children().eq(0).css("display","none");
     $(e.currentTarget).children().eq(0).children().eq(1).css("display","block");
+    if ($(e.currentTarget).attr("id") == 'black'){
+        PoliciaPosition.value += 1;
+        if (PoliciaPosition.value == 7){
+            EndGame("policia");
+        }
+    }else if ($(e.currentTarget).attr("id") == 'red'){
+        BombeiroPosition.value += 1;
+        if (BombeiroPosition.value == 7){
+            EndGame("bombeiro");
+        }
+    }else if ($(e.currentTarget).attr("id") == 'white'){
+        AmbulanciaPosition.value += 1;
+        if (AmbulanciaPosition.value == 7){
+            EndGame("ambulancia");
+        }
+    }
 }
 
 
@@ -89,8 +134,8 @@ console.log(DashboardArray);
 
     <!-- Game Container -->
     <div class="flex-1 w-full flex flex-col justify-center items-center">
-        <div v-if="ActualState == `Start`" class="h-[600px] w-[70%] flex flex-col justify-center items-center border-2 border-black">
-            <div class="text-3xl">Escolha um para apostar</div>
+        <div v-if="ActualState == `Start`" class="h-[600px] w-[70%] flex flex-col justify-center items-center">
+            <div class="text-5xl font-[700]">Escolha um para apostar</div>
             <div class="h-[90%] w-full flex flex-row justify-center items-center">
                 <!-- Policia Box -->
                 <div class="h-[60%] w-[25%] flex flex-col border-4 border-black rounded-3xl cursor-pointer" id="policia" @click="StartGame">
@@ -115,14 +160,14 @@ console.log(DashboardArray);
                 </div>
             </div>
         </div>
-        <div v-if="ActualState == `Jogando`" class="h-full w-full">
+        <div v-else-if="ActualState == `Jogando`" class="h-full w-full">
             <!-- Dashboard Div -->
             <div class="h-[75%] w-full">
                 <div v-for="x in DashboardArray" class="h-1/3 w-full flex flex-row">
                     <div v-for="y in x" class="h-full w-1/6 flex justify-center items-center border-2 border-black">
                         <div @click="MoveCar" :id="y[0]" class="h-[60%] w-1/2 rounded-[50%] bg-[#b8b6b6] flex justify-center items-center cursor-pointer">
                             <div class="h-[75%] w-[75%] rounded-[50%] bg-[#999797] flex justify-center items-center">
-                                <span class="font-[900] text-3xl text-[#3739b8]">{{y[1]}}</span>
+                                <span class="font-[900] text-6xl text-[#3739b8]">{{y[1]}}</span>
                                 <span v-if="y[0] == `black`" class="h-[50%] w-[50%] rounded-[50%] bg-black hidden"></span>
                                 <span v-else-if="y[0] == `red`" class="h-[50%] w-[50%] rounded-[50%] bg-[red] hidden"></span>
                                 <span v-else-if="y[0] == `white`" class="h-[50%] w-[50%] rounded-[50%] bg-white hidden"></span>
@@ -138,8 +183,8 @@ console.log(DashboardArray);
             </div>
             <!-- Corrida Div -->
             <div class="h-[20%] w-full flex flex-col justify-center items-center">
-                <div v-for="Carro in Cores" class="h-[60px] w-[70%] flex flex-row border-2 border-black" :id="Carro">
-                    <div v-for="Posicao in PosicoesCorrida" class="h-full w-[15%] flex justify-center items-center border-2 border-[red]" :id="Posicao">
+                <div v-for="Carro in Cores" class="h-[60px] w-[70%] flex flex-row" :id="Carro">
+                    <div v-for="Posicao in PosicoesCorrida" class="h-full w-[15%] flex justify-center items-center border-2 border-black" :id="Posicao">
                         <span v-if="Posicao == 1" class="h-[80%] w-[70%] flex justify-center items-center">
                             <div v-if="Carro == `policia`" class="h-full w-full absolute flex justify-center items-center">
                                 <span v-if="PoliciaPosition !== Posicao">Início</span>
@@ -185,6 +230,13 @@ console.log(DashboardArray);
                     </div>
                 </div>
             </div>
+        </div>
+        <div v-else-if="ActualState == `Fim`" class="h-[80%] w-[70%] bg-[#91f58c] flex flex-col justify-center items-center">
+            <div v-if="PlayerWon" class="h-[20%] w-full flex justify-center items-center font-[900] text-8xl">Você ganhou!</div>
+            <div v-else-if="!PlayerWon" class="h-[20%] w-full flex justify-center items-center font-[900] text-8xl">Você perdeu!</div>
+            <div class="h-[20%] w-full flex justify-center items-center font-[500] text-4xl">Você escolheu {{PlayerColor}}</div>
+            <div class="h-[20%] w-full flex justify-center items-center font-[500] text-4xl">{{Winner}} foi o vencedor</div>
+            <button @click="RestartGame" class="h-[10%] w-[20%] flex justify-center items-center bg-white">Jogar Novamente</button>
         </div>
     </div>
 </template>
