@@ -5,8 +5,8 @@
 
 /* Simon Game Animations */
 @keyframes LightUp {
-    from {opacity: 65%;};
-    to {opacity: 100%;};
+    from {opacity: 65%;}
+    to {opacity: 100%;}
 }
 @keyframes LightDown {
     from {opacity: 100%;}
