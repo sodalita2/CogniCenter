@@ -3,12 +3,8 @@
 @tailwind utilities;
 
 
-/* Simon Game Animations */
-@keyframes LightUp {
-    from {opacity: 65%;}
-    to {opacity: 100%;}
-}
-@keyframes LightDown {
-    from {opacity: 100%;}
-    to {opacity: 65%;}
+/* Header Animations */
+@keyframes NavHoverShow {
+    from {width: 0%;}
+    to {width: 100%;}
 }

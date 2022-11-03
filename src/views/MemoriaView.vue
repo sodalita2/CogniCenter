@@ -84,7 +84,7 @@ function StopGame(){
     clearInterval(TimerObj.value);
 }
 function RestartGame(){
-    ActualState.value = "Start";
+    ActualState.value = "Jogando";
 }
 
 
