@@ -16,9 +16,9 @@ module.exports = {
       },
     },
     screens: {
-      "MaxW-400px":{'max':'400px'},
-      "MaxW-700px":{'max':'700px'},
-      "MaxW-1000px":{'max':'1000px'},
+      "W400":'400px',
+      "W710":'710px',
+      "W1060":'1060px',
     },
   },
   plugins: [],

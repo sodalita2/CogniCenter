@@ -8,7 +8,8 @@
     <!-- Apresentacao -->
     <div class="h-[600px] w-full flex flex-row">
       <div class="h-full w-[60%] bg-orange-rgba flex flex-col justify-center items-center">
-        <span class="border-2 border-black h-[25%] w-[80%] flex justify-center items-center text-[40px] font-[700] italic tracking-tighter flex-nowrap">
+        <span class="border-2 border-black h-[25%] w-[80%] flex justify-center items-center text-[40px] max-[400px]:text-[16px]
+        font-[700] italic tracking-tighter flex-nowrap">
           A Cognicenter é uma plataforma de jogos voltados para exercícios cognitivos.
         </span>
         <span class="border-2 border-black h-[40%] w-[80%] mt-4 flex justify-center items-start text-[30px] font-[200] tracking-tighter flex-nowrap">
@@ -19,7 +20,7 @@
         </span>
       </div>
       <div class="h-full w-[40%]">
-        <img class="h-full w-full" src="../assets/Home/4057827.jpg">
+        <img class="h-full w-full" src="/Home/4057827.jpg">
       </div>
     </div>
 
@@ -38,7 +39,7 @@
       <!-- Jogos abaixo, height definido por quantidades de flexbox jogos, template abaixo -->
       <RouterLink to="Memoria" class="h-[300px] w-full mt-16 flex flex-row rounded-xl hover:bg-orange-rgba-lighter">
         <div class="h-full w-[25%] flex justify-center items-center">
-          <img class="h-[90%] w-[90%]" src="../assets/Home/CapaMemoria.jpg">
+          <img class="h-[90%] w-[90%]" src="/Home/CapaMemoria.jpg">
         </div>
         <!-- Titulo do Jogo + Descricao (opcional) -->
         <div class="h-full flex flex-1 flex-col">
@@ -53,7 +54,7 @@
 
       <RouterLink to="Corrida" class="h-[300px] w-full mt-16 flex flex-row rounded-xl hover:bg-orange-rgba-lighter">
         <div class="h-full w-[25%] flex justify-center items-center">
-          <img class="h-[90%] w-[90%]" src="../assets/Home/CapaCorrida.jpg">
+          <img class="h-[90%] w-[90%]" src="/Home/CapaCorrida.jpg">
         </div>
         <!-- Titulo do Jogo + Descricao (opcional) -->
         <div class="h-full flex flex-1 flex-col">
