@@ -141,21 +141,21 @@ console.log(DashboardArray);
                 <div class="h-[60%] w-[25%] flex flex-col border-4 border-black rounded-3xl cursor-pointer" id="policia" @click="StartGame">
                     <div class="flex items-center justify-center text-[2vw] font-bold h-[20%] w-full">Policia</div>
                     <div class="h-[80%] w-full">
-                        <img class="h-full w-full object-fill rounded-b-3xl" src="/Corrida/policia.png">
+                        <img class="h-full w-full object-fill rounded-b-3xl" src="../assets/Corrida/policia.png">
                     </div>
                 </div>
                 <!-- Bombeiro Box -->
                 <div class="h-[60%] w-[25%] flex flex-col border-4 border-black rounded-3xl ml-12 cursor-pointer" id="bombeiro" @click="StartGame">
                     <div class="flex items-center justify-center text-[2vw] font-bold h-[20%] w-full">Bombeiro</div>
                     <div class="h-[80%] w-full">
-                        <img class="h-full w-full object-fill rounded-b-3xl" src="/Corrida/bombeiro.png">
+                        <img class="h-full w-full object-fill rounded-b-3xl" src="../assets/Corrida/bombeiro.png">
                     </div>
                 </div>
                 <!-- Ambulancia Box -->
                 <div class="h-[60%] w-[25%] flex flex-col border-4 border-black rounded-3xl ml-12 cursor-pointer" id="ambulancia" @click="StartGame">
                     <div class="flex items-center justify-center text-[2vw] font-bold h-[20%] w-full">Ambulancia</div>
                     <div class="h-[80%] w-full">
-                        <img class="h-full w-full object-fill rounded-b-3xl" src="/Corrida/ambulancia.png">
+                        <img class="h-full w-full object-fill rounded-b-3xl" src="../assets/Corrida/ambulancia.png">
                     </div>
                 </div>
             </div>
@@ -188,43 +188,43 @@ console.log(DashboardArray);
                         <span v-if="Posicao == 1" class="h-[80%] w-[70%] flex justify-center items-center">
                             <div v-if="Carro == `policia`" class="h-full w-full absolute flex justify-center items-center">
                                 <span v-if="PoliciaPosition !== Posicao">Início</span>
-                                <img v-if="PoliciaPosition == Posicao" src="/Corrida/policia.png">
+                                <img v-if="PoliciaPosition == Posicao" src="../assets/Corrida/policia.png">
                             </div>
                             <div v-if="Carro == `bombeiro`" class="h-full w-full absolute flex justify-center items-center">
                                 <span v-if="BombeiroPosition !== Posicao">Início</span>
-                                <img v-if="BombeiroPosition == Posicao" src="/Corrida/bombeiro.png">
+                                <img v-if="BombeiroPosition == Posicao" src="../assets/Corrida/bombeiro.png">
                             </div>
                             <div v-if="Carro == `ambulancia`" class="h-full w-full absolute flex justify-center items-center">
                                 <span v-if="AmbulanciaPosition !== Posicao">Início</span>
-                                <img v-if="AmbulanciaPosition == Posicao" src="/Corrida/ambulancia.png">
+                                <img v-if="AmbulanciaPosition == Posicao" src="../assets/Corrida/ambulancia.png">
                             </div>
                         </span>
                         <span v-else-if="Posicao == 7" class="h-[80%] w-[70%] flex justify-center items-center">
                             <div v-if="Carro == `policia`" class="h-full w-full absolute flex justify-center items-center">
                                 <span v-if="PoliciaPosition !== Posicao">Chegada</span>
-                                <img v-if="PoliciaPosition == Posicao" src="/Corrida/policia.png">
+                                <img v-if="PoliciaPosition == Posicao" src="../assets/Corrida/policia.png">
                             </div>
                             <div v-if="Carro == `bombeiro`" class="h-full w-full absolute flex justify-center items-center">
                                 <span v-if="BombeiroPosition !== Posicao">Chegada</span>
-                                <img v-if="BombeiroPosition == Posicao" src="/Corrida/bombeiro.png">
+                                <img v-if="BombeiroPosition == Posicao" src="../assets/Corrida/bombeiro.png">
                             </div>
                             <div v-if="Carro == `ambulancia`" class="h-full w-full absolute flex justify-center items-center">
                                 <span v-if="AmbulanciaPosition !== Posicao">Chegada</span>
-                                <img v-if="AmbulanciaPosition == Posicao" src="/Corrida/ambulancia.png">
+                                <img v-if="AmbulanciaPosition == Posicao" src="../assets/Corrida/ambulancia.png">
                             </div>
                         </span>
                         <span v-else="" class="h-[80%] w-[70%] flex justify-center items-center">
                             <div v-if="Carro == `policia`" class="h-full w-full absolute flex justify-center items-center">
                                 <span v-if="PoliciaPosition !== Posicao">{{Posicao}}</span>
-                                <img v-if="PoliciaPosition == Posicao" src="/Corrida/policia.png">
+                                <img v-if="PoliciaPosition == Posicao" src="../assets/Corrida/policia.png">
                             </div>
                             <div v-if="Carro == `bombeiro`" class="h-full w-full absolute flex justify-center items-center">
                                 <span v-if="BombeiroPosition !== Posicao">{{Posicao}}</span>
-                                <img v-if="BombeiroPosition == Posicao" src="/Corrida/bombeiro.png">
+                                <img v-if="BombeiroPosition == Posicao" src="../assets/Corrida/bombeiro.png">
                             </div>
                             <div v-if="Carro == `ambulancia`" class="h-full w-full absolute flex justify-center items-center">
                                 <span v-if="AmbulanciaPosition !== Posicao">{{Posicao}}</span>
-                                <img v-if="AmbulanciaPosition == Posicao" src="/Corrida/ambulancia.png">
+                                <img v-if="AmbulanciaPosition == Posicao" src="../assets/Corrida/ambulancia.png">
                             </div>
                         </span>
                     </div>
