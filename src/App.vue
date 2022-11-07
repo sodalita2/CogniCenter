@@ -13,7 +13,7 @@ const HeaderOnPages = ["Home","Sobre","Social","Contato"];
   <header v-if="HeaderOnPages.indexOf($route.name) > -1" class="h-[150px] w-full text-4xl font-[500] flex items-center justify-center">
     <!-- Logo -->
     <RouterLink to="/" class="w-[30%] h-full flex justify-center items-center">
-      <img class="w-[65%] h-[50%]" src="/Home/Logo2.png">
+      <img class="w-[65%] h-[50%]" src="./assets/Home/Logo2.png">
     </RouterLink>
     <!-- Header Nav -->
     <div class="flex flex-1 h-full justify-center items-center">

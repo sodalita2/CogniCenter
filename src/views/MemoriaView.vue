@@ -225,8 +225,8 @@ function ShowCard(e){
         <div v-if="ActualState == `Jogando`" class="h-[97%] w-[80%] MaxW-700px:h-[99%] MaxW-700px:w-[99%] flex flex-col justify-center MaxW-700px:justify-start items-center">
             <div v-for="item in CardsArray" class="h-1/4 w-full flex flex-row justify-center items-center">
                 <div v-for="y in item" class="h-[180px] w-[260px] MaxW-700px:h-[190px] flex items-center justify-center m-4 MaxW-700px:m-1 cursor-pointer">
-                    <img :id="y" class="h-[95%] w-[95%] rounded-xl" :src="`/Memoria/${BichosPath[y]}`">
-                    <img @click="ShowCard" class="h-full w-full absolute top-0 left-0" src="/Memoria/CartaBack.png">
+                    <img :id="y" class="h-[95%] w-[95%] rounded-xl" :src="`../assets/Memoria/${BichosPath[y]}`">
+                    <img @click="ShowCard" class="h-full w-full absolute top-0 left-0" src="../assets/Memoria/CartaBack.png">
                 </div>
             </div>
         </div>

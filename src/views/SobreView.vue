@@ -18,7 +18,7 @@ import { BIconGithub, BIconLinkedin } from 'bootstrap-icons-vue';
             <!-- Foto Left Side Container -->
             <div class="h-full w-1/2 flex justify-center items-center">
                 <div class="h-[70%] w-[70%] rounded-3xl border-2 border-black overflow-hidden">
-                    <img class="w-full h-full" src="/Home/4911367.jpg">
+                    <img class="w-full h-full" src="../assets/Home/4911367.jpg">
                 </div>
             </div>
             <!-- Links Right Side Container -->
