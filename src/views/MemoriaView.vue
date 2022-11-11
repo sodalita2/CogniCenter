@@ -32,6 +32,7 @@ function StopGame(){
     LastTime.value = TimerRef.value;
     LastAcertos.value = Acertos.value;
     if (localStorage.getItem("BestTime") == null){
+        console.log("storage null");
         if (LastAcertos > 0){
             BestTime.value = LastTime.value;
             BestAcertos.value = LastAcertos.value;
@@ -40,6 +41,7 @@ function StopGame(){
             BrokeRecord.value = true;
         }
     }else{
+        console.log("storage not null");
         let LocalBestTime = localStorage.getItem("BestTime");
         let LocalBestAcertos = parseInt(localStorage.getItem("BestAcertos"));
         if (LastAcertos > LocalBestAcertos){
@@ -84,7 +86,9 @@ function StopGame(){
     clearInterval(TimerObj.value);
 }
 function RestartGame(){
+    Reset();
     ActualState.value = "Jogando";
+    TimerObj.value = Timer();
 }
 
 
@@ -94,16 +98,16 @@ function RestartGame(){
 const Bichos = ['burro','cachorro','cervo','elefante','esquilo','girafa','guaxinim','leao','macaco','zebra'];
 
 const BichosPath = {
-    "burro":"burro.jpg",
-    "cachorro":"cachorro.jpg",
+    "burro":"burro.png",
+    "cachorro":"cachorro.png",
     "cervo":"cervo.png",
     "elefante":"elefante.png",
     "esquilo":"esquilo.png",
     "girafa":"girafa.png",
-    "guaxinim":"guaxinim.jpg",
+    "guaxinim":"guaxinim.png",
     "leao":"leao.png",
     "macaco":"macaco.png",
-    "zebra":"zebra.jpg"
+    "zebra":"zebra.png"
 };
 
 var Width = 5;
@@ -222,7 +226,7 @@ function ShowCard(e){
         <!--<div v-if="(ActualState == `Fim` || Acertos == 10) ? StopGame() : ``"></div>-->
         <!-- Jogo Container -->
         <!-- Jogando -->
-        <div v-if="ActualState == `Jogando`" class="h-[750px] w-full xl:w-[80%] border-2 flex flex-col justify-center items-center">
+        <div v-if="ActualState == `Jogando`" class="h-[750px] w-full xl:w-[80%] flex flex-col justify-center items-center">
             <div v-for="item in CardsArray" class="h-1/4 w-full flex flex-row justify-center items-center">
                 <div v-for="y in item" class="h-[180px] w-[360px] lg:w-[260px] flex items-center justify-center m-[2px] sm:m-1 lg:m-4 cursor-pointer">
                     <img :id="y" class="h-[95%] w-[95%] rounded-xl" :src="`/src/assets/Memoria/${BichosPath[y]}`">

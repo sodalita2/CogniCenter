@@ -4,15 +4,15 @@
 
 <template>
   <!-- Wrapper -->
-  <div id="body" class="h-auto w-full flex flex-col items-center z-10">
+  <div id="body" class="h-auto w-full flex flex-col items-chenter z-10">
     <!-- Apresentacao -->
     <div class="h-[400px] w-full flex flex-row mt-4">
       <div class="h-full flex-1 bg-orange-rgba flex flex-col justify-center items-center">
-        <span class="border-2 border-black h-[25%] w-[90%] flex justify-center items-center
+        <span class="h-[25%] w-[90%] flex justify-start items-center
         font-[700] italic tracking-tighter flex-nowrap sm:text-[23px] md:text-[24px] md:w-[90%] lg:text-[28px]">
           A Cognicenter é uma plataforma de jogos voltados para exercícios cognitivos.
         </span>
-        <span class="border-2 border-black h-[350px] w-[90%] mt-4 flex justify-center items-start text-[23px] font-[200] tracking-tighter flex-nowrap
+        <span class="h-[350px] w-[90%] mt-4 flex justify-center items-start text-[23px] font-[200] tracking-tighter flex-nowrap
         sm:text-[20px] md:text-[22px] md:w-[90%] lg:text-[24px]">
           Feitos de uma forma divertida e estimulante, ela foi desenvolvida com base teórica e seu objetivo é atingir várias áreas de intervenção cognitiva.
           <RouterLink to="Sobre" class="h-[10%] w-[80%] absolute bottom-4 left-0 text-[#615361] text-[22px] hover:text-[#5e8568] hover:font-[600]
@@ -35,13 +35,13 @@
     <!-- Wrapper -->
     <div class="h-[50px] w-[98%] sm:w-[95%] lg:w-[92%] flex flex-row mt-6 md:mt-8 lg:mt-20">
       <!-- Linha Left Container -->
-      <div class="h-full w-[10%] border-2 mr-1 sm:mr-2 flex justify-center items-center">
+      <div class="h-full w-[10%] mr-1 sm:mr-2 flex justify-center items-center">
         <span class="h-[2px] w-full bg-black"></span>
       </div>
       <!-- Middle Texto --> 
-      <div class="h-full w-[24%] border-2 flex justify-center items-center text-[16px] sm:w-[22%] sm:text-[16px] md:text-[19px] lg:text-[23px] xl:text-[28px] 2xl:text-[33px] font-[600] tracking-tighter">Catálogo de Jogos</div>
+      <div class="h-full w-[24%] flex justify-center items-center text-[16px] sm:w-[22%] sm:text-[16px] md:text-[19px] lg:text-[23px] xl:text-[28px] 2xl:text-[33px] font-[600] tracking-tighter">Catálogo de Jogos</div>
       <!-- Linha Right Container -->
-      <div class="h-full flex flex-1 border-2 ml-1 sm:ml-2 justify-center items-center">
+      <div class="h-full flex flex-1 ml-1 sm:ml-2 justify-center items-center">
         <span class="h-[2px] w-full bg-black"></span>
       </div>
     </div>
