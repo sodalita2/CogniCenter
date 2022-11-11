@@ -199,18 +199,18 @@ function ShowCard(e){
     <BotaoRetornar/>
     <!-- Game Stats -->
     <div class="h-[70px] w-full bg-[#91f58c] flex flex-row justify-center items-center">
-        <button v-if="ActualState == `Start`" @click="StartGame" class="h-[45px] w-[150px] MaxW-700px:h-[60px] MaxW-700px:w-[200px] ml-12 MaxW-700px:ml-2 bg-[#F9F9F9] font-bold border-2">Iniciar Jogo</button>
-        <button v-else-if="ActualState == `Jogando`" @click="StopGame" class="h-[45px] w-[150px] MaxW-700px:h-[60px] MaxW-700px:w-[200px] ml-12 MaxW-700px:ml-2 bg-[#F9F9F9] font-bold border-2">Parar Jogo</button>
-        <button v-else-if="ActualState == `Fim`" @click="RestartGame" class="h-[45px] w-[150px] MaxW-700px:h-[60px] MaxW-700px:w-[200px] ml-12 MaxW-700px:ml-2 bg-[#F9F9F9] font-bold border-2">Recomeçar</button>
-        <div class="h-[70px] flex flex-row w-[400px] items-center ml-12 MaxW-700px:ml-6">
+        <button v-if="ActualState == `Start`" @click="StartGame" class="h-[45px] w-[220px] sm:w-[150px] ml-4 sm:ml-12 bg-[#F9F9F9] font-bold border-2 text-[5vw] sm:text-[23px]">Iniciar Jogo</button>
+        <button v-else-if="ActualState == `Jogando`" @click="StopGame" class="h-[45px] w-[220px] sm:w-[150px] ml-4 sm:ml-12 bg-[#F9F9F9] font-bold border-2 text-[5vw] sm:text-[23px]">Parar Jogo</button>
+        <button v-else-if="ActualState == `Fim`" @click="RestartGame" class="h-[45px] w-[220px] sm:w-[150px] ml-4 sm:ml-12 bg-[#F9F9F9] font-bold border-2 text-[5vw] sm:text-[23px]">Recomeçar</button>
+        <div class="h-[70px] flex flex-row w-[400px] items-center ml-8 sm:ml-12">
             <!-- Timer Container -->
-            <div class="text-3xl">
+            <div class="text-2xl sm:text-3xl">
                 <span v-if="ActualState == `Start`">00:00</span>
                 <span v-else-if="ActualState == `Jogando`">{{TimerRef}}</span>
                 <span v-else-if="ActualState == `Fim`">{{LastTime}}</span>
             </div>
             <!-- Score Container -->
-            <div class="text-2xl ml-24 MaxW-700px:ml-6">
+            <div class="text-xl sm:text-2xl ml-8 sm:ml-24">
                 <span v-if="ActualState == `Start`">Acertos: 0 de 10</span>
                 <span v-else-if="ActualState == `Jogando`">Acertos: {{Acertos}} de 10</span>
                 <span v-else-if="ActualState == `Fim`">Acertos: {{LastAcertos}} de 10</span>
@@ -222,10 +222,10 @@ function ShowCard(e){
         <!--<div v-if="(ActualState == `Fim` || Acertos == 10) ? StopGame() : ``"></div>-->
         <!-- Jogo Container -->
         <!-- Jogando -->
-        <div v-if="ActualState == `Jogando`" class="h-[97%] w-[80%] MaxW-700px:h-[99%] MaxW-700px:w-[99%] flex flex-col justify-center MaxW-700px:justify-start items-center">
+        <div v-if="ActualState == `Jogando`" class="h-[750px] w-full xl:w-[80%] border-2 flex flex-col justify-center items-center">
             <div v-for="item in CardsArray" class="h-1/4 w-full flex flex-row justify-center items-center">
-                <div v-for="y in item" class="h-[180px] w-[260px] MaxW-700px:h-[190px] flex items-center justify-center m-4 MaxW-700px:m-1 cursor-pointer">
-                    <img :id="y" class="h-[95%] w-[95%] rounded-xl" :src="`../assets/Memoria/${BichosPath[y]}`">
+                <div v-for="y in item" class="h-[180px] w-[360px] lg:w-[260px] flex items-center justify-center m-[2px] sm:m-1 lg:m-4 cursor-pointer">
+                    <img :id="y" class="h-[95%] w-[95%] rounded-xl" :src="`/src/assets/Memoria/${BichosPath[y]}`">
                     <img @click="ShowCard" class="h-full w-full absolute top-0 left-0" src="../assets/Memoria/CartaBack.png">
                 </div>
             </div>

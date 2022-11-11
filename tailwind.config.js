@@ -15,11 +15,6 @@ module.exports = {
         'NavHoverHide': 'NavHoverHide 0.4s',
       },
     },
-    screens: {
-      "W400":'400px',
-      "W710":'710px',
-      "W1060":'1060px',
-    },
   },
   plugins: [],
 }
