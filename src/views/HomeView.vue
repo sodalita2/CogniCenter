@@ -4,12 +4,12 @@
 
 <template>
   <!-- Wrapper -->
-  <div id="body" class="h-auto w-full flex flex-col items-chenter z-10">
+  <div id="body" class="h-auto w-full flex flex-col items-center z-10">
     <!-- Apresentacao -->
     <div class="h-[400px] w-full flex flex-row mt-4">
       <div class="h-full flex-1 bg-orange-rgba flex flex-col justify-center items-center">
         <span class="h-[25%] w-[90%] flex justify-start items-center
-        font-[700] italic tracking-tighter flex-nowrap sm:text-[23px] md:text-[24px] md:w-[90%] lg:text-[28px]">
+        font-[700] italic tracking-tighter flex-nowrap sm:text-[23px] md:text-[24px] md:w-[90%] lg:text-[28px] mt-">
           A Cognicenter é uma plataforma de jogos voltados para exercícios cognitivos.
         </span>
         <span class="h-[350px] w-[90%] mt-4 flex justify-center items-start text-[23px] font-[200] tracking-tighter flex-nowrap
@@ -35,7 +35,7 @@
     <!-- Wrapper -->
     <div class="h-[50px] w-[98%] sm:w-[95%] lg:w-[92%] flex flex-row mt-6 md:mt-8 lg:mt-20">
       <!-- Linha Left Container -->
-      <div class="h-full w-[10%] mr-1 sm:mr-2 flex justify-center items-center">
+      <div class="h-full w-[10%] ml-4 mr-1 sm:mr-2 flex justify-center items-center">
         <span class="h-[2px] w-full bg-black"></span>
       </div>
       <!-- Middle Texto --> 
@@ -46,32 +46,42 @@
       </div>
     </div>
     <!-- Jogos Container -->
-    <div class="h-auto w-[90%]">
+    <div class="h-auto w-[90%] flex flex-col justify-center items-center">
       <!-- Jogos abaixo, height definido por quantidades de flexbox jogos, template abaixo -->
-      <RouterLink to="Memoria" class="h-[300px] w-full mt-16 flex flex-row rounded-xl hover:bg-orange-rgba-lighter">
-        <div class="h-full w-[25%] flex justify-center items-center">
-          <img class="h-[90%] w-[90%] border-8 border-black" src="../assets/Home/CapaMemoria.jpg">
+      <RouterLink to="Memoria" class="h-[500px] lg:h-[300px] w-full mt-16 flex flex-col items-center lg:flex-row rounded-xl hover:bg-orange-rgba-lighter">
+        <div class="h-[60%] lg:h-full w-full  flex justify-center items-center md:w-[70%] lg:w-[25%]">
+          <img class="h-[90%] w-[90%] border-[0px] border-black rounded-xl" src="../assets/Home/CapaMemoria.jpg">
         </div>
         <!-- Titulo do Jogo + Descricao (opcional) -->
-        <div class="h-full flex flex-1 flex-col">
+        <div class="h-[40%] w-full lg:h-full flex flex-1 flex-col mt-8 lg:mt-0">
           <!-- Titulo Box -->
-          <div class="h-[30%] w-full flex">
+          <div class="h-[30%] w-full flex mt-2">
             <span class="italic text-[34px] font-[500] tracking-tighter ml-[6vw]">Jogo da Memória</span>
+          </div>
+          <div class="flex flex-1 w-full">
+            <span class="italic text-[22px] font-[500] tracking-tighter ml-[6vw]">
+              Encontre duas figuras iguais no menor tempo possível.
+            </span>
           </div>
         </div>
       </RouterLink>
 
       <div class="h-[2px] w-full bg-black opacity-[8%] mt-16"></div>
 
-      <RouterLink to="Corrida" class="h-[300px] w-full mt-16 flex flex-row rounded-xl hover:bg-orange-rgba-lighter">
-        <div class="h-full w-[25%] flex justify-center items-center">
-          <img class="h-[90%] w-[90%] border-8 border-black" src="../assets/Home/CapaCorrida.jpg">
+      <RouterLink to="Corrida" class="h-[500px] lg:h-[300px] w-full mt-16 flex flex-col items-center lg:flex-row rounded-xl hover:bg-orange-rgba-lighter">
+        <div class="h-[60%] lg:h-full w-full flex justify-center items-center md:w-[70%] lg:w-[25%]">
+          <img class="h-[90%] w-[90%] border-[0px] border-black rounded-xl" src="../assets/Home/CapaCorrida.jpg">
         </div>
         <!-- Titulo do Jogo + Descricao (opcional) -->
-        <div class="h-full flex flex-1 flex-col">
+        <div class="h-[40%] w-full lg:h-full flex flex-1 flex-col mt-8 lg:mt-0">
           <!-- Titulo Box -->
-          <div class="h-[30%] w-full flex">
+          <div class="h-[30%] w-full flex mt-2">
             <span class="italic text-[34px] font-[500] tracking-tighter ml-[6vw]">Jogo da Corrida</span>
+          </div>
+          <div class="flex flex-1 w-full">
+            <span class="italic text-[22px] font-[500] tracking-tighter ml-[6vw]">
+              Selecione um carro e escolha dentre os 18 números aleatórios, a cada cor que sair um carro correspondente irá para frente, se sua escolha chegar na Chegada, você sairá vencedor.
+            </span>
           </div>
         </div>
       </RouterLink>

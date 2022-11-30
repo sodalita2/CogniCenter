@@ -5,47 +5,51 @@ import { BIconGithub, BIconLinkedin } from 'bootstrap-icons-vue';
 
 <template>
     <!-- Wrapper -->
-    <div class="w-full h-auto flex flex-col items-center">
-        <!-- Apresentacao -->
-        <div class="w-[80%] h-[350px] border-2 flex justify-center items-center">
-            <span class="h-full w-full flex justify-center mt-[160px] text-[42px] font-[500] italic tracking-tighter text-center">
+    <div class="w-full h-auto flex flex-col items-center mt-12">
+        <!-- Apresentacao + Bio Container -->
+        <div class="w-[90%] sm:w-[80%] h-auto flex flex-col mt-8">
+            <!-- Apres -->
+            <div class="w-full h-auto text-[20px] sm:text-[28px] md:text-[34px] lg:text-[38px] xl:text-[40px] 2xl:text-[42px] font-[500] italic tracking-tighter text-center">
                 A plataforma foi desenvolvida por Gabriel Bittencourt de Souza Pinto para seu Trabalho de Conclusão de Curso 
                 em Sistemas de Computação - Universidade Federal Fluminense
-            </span>
-        </div>
-        <!-- Bio -->
-        <div class="w-[80%] h-[500px] border-2 mt-[40px] flex flex-row justify-center items-center">
-            <!-- Foto Left Side Container -->
-            <div class="h-full w-1/2 flex justify-center items-center">
-                <div class="h-[70%] w-[70%] rounded-3xl border-2 border-black overflow-hidden">
-                    <img class="w-full h-full" src="../assets/Home/4911367.jpg">
-                </div>
             </div>
-            <!-- Links Right Side Container -->
-            <div class="h-full w-1/2 flex justify-center items-center">
-                <a href="https://github.com/sodalita2/CogniCenter"><BIconGithub class="text-[7vw]"/></a>
-                <a href="https://www.linkedin.com/in/gabriel-bittencourt-sp/"><BIconLinkedin class="text-[7vw] ml-[8vw]"/></a>
+            <!-- Bio -->
+            <div class="w-full flex flex-1 flex-row mt-8">
+                <span class="w-[50%] h-full flex justify-center items-center">
+                    <img class="rounded-[40%]" src="../assets/Home/4911367.jpg">
+                </span>
+                <span class="w-[50%] h-full flex justify-center items-center">
+                    <a class="h-[30%] w-[30%] sm:h-[100px] sm:w-[100px] md:h-[150px] md:w-[150px] lg:h-[190px] lg:w-[190px] xl:h-[210px] xl:w-[210px] 2xl:h-[240px] 2xl:w-[240px] flex justify-center items-center mr-4" href="https://github.com/sodalita2">
+                        <BIconGithub class="text-[60px] sm:text-[70px] md:text-[83px] lg:text-[100px] xl:text-[120px] 2xl:text-[140px]" />
+                    </a>
+                    <a class="h-[30%] w-[30%] sm:h-[100px] sm:w-[100px] md:h-[150px] md:w-[150px] lg:h-[190px] lg:w-[190px] xl:h-[210px] xl:w-[210px] 2xl:h-[240px] 2xl:w-[240px] flex justify-center items-center" href="https://www.linkedin.com/in/gabriel-bittencourt-sp/">
+                        <BIconLinkedin class="text-[60px] sm:text-[70px] md:text-[83px] lg:text-[100px] xl:text-[120px] 2xl:text-[140px]" />
+                    </a>
+                </span>
             </div>
         </div>
 
 
         <!-- Projeto Futuro Title -->
-        <div class="w-[80%] h-[90px] flex flex-row mt-[80px]">
-            <div class="h-full w-[5%] flex justify-center items-center">
+        <div class="h-[50px] w-[98%] sm:w-[95%] lg:w-[92%] flex flex-row mt-6 md:mt-8 lg:mt-20">
+            <!-- Linha Left Container -->
+            <div class="h-full w-[10%] ml-4 mr-1 sm:mr-2 flex justify-center items-center">
                 <span class="h-[2px] w-full bg-black"></span>
             </div>
-            <div class="h-full w-[18%] text-[36px] font-[600] tracking-tighter flex justify-center items-center">Projeto Futuro</div>
-            <div class="h-full flex flex-1 justify-center items-center">
+            <!-- Middle Texto --> 
+            <div class="h-full w-[24%] flex justify-center items-center text-center text-[19px] sm:w-[22%] sm:text-[20px] md:text-[19px] lg:text-[23px] xl:text-[28px] 2xl:text-[33px] font-[600] tracking-tighter">Projetos Futuros</div>
+            <!-- Linha Right Container -->
+            <div class="h-full flex flex-1 ml-1 sm:ml-2 justify-center items-center">
                 <span class="h-[2px] w-full bg-black"></span>
             </div>
         </div>
         <!-- Projeto Texto -->
-        <div class="w-[80%] h-[400px] flex justify-center items-center">
-            <span class="h-full w-full flex justify-center items-center mt-[160px] text-[42px] font-[500] italic tracking-tighter text-center">
-                Meu projeto para a plataforma é expandi-la, abrigando variadas
-                áreas de intervenção cognitiva, que possa futuramente ser usada
-                tanto com auxílio de profissionais de saúde assim como o usuário,
-                por conta própria, disfrutar da plataforma.
+        <div class="w-[90%] sm:w-[80%] h-auto flex justify-center items-center mt-12 xl:mt-16 2xl:mt-24">
+            <span class="h-full w-full flex justify-center items-center text-[20px] sm:text-[28px] md:text-[34px] lg:text-[38px] xl:text-[40px] 2xl:text-[42px] font-[500] italic tracking-tighter text-center">
+                Meu projeto para a plataforma é expandir as áreas de intervenção 
+                cognitiva e implementar ferramentas para que os profissionais 
+                de saúde, fazendo o uso da plataforma, possam analisar dados 
+                de desempenho dos seus pacientes durante tratamento.
                 O código da plataforma é aberto em meu repositório no Github,
                 toda recomendação e conselho é bem vindo, caso você tenha uma
                 ideia de jogo para ser implementado na plataforma, sugiro que

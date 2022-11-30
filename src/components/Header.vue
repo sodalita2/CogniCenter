@@ -49,7 +49,7 @@ function ResetMobileMenu(){
 
 
 <template>
-    <div v-if="HeaderOnPages.indexOf($route.name) > -1" id="header" class="h-[68px] w-full relative text-4xl font-[500] flex items-center justify-center z-20">
+    <div v-if="HeaderOnPages.indexOf($route.name) > -1" id="header" class="mt-6 h-[68px] w-full relative text-4xl font-[500] flex items-center justify-center z-20">
         <!-- Logo -->
         <RouterLink to="/" @click="ResetMobileMenu" class="h-full flex justify-center items-center w-[200px] sm:w-[270px] md:w-[30%]">
             <img class="w-[65%] h-[50%] sm:h-[80px]" src="../assets/Home/Logo.png">
@@ -67,16 +67,16 @@ function ResetMobileMenu(){
             </RouterLink>
 
             <!-- Mobile Menu Hamburguer -->
-            <div class="h-full w-[150px] flex justify-center items-center md:hidden border-2" @click="MobileMenuToggle">
+            <div class="h-full w-[150px] flex justify-center items-center md:hidden" @click="MobileMenuToggle">
                 <BIconList class="text-6xl"/>
             </div>
         </div>
         <!-- Mobile Menu Slide From Right -->
-        <div id="MobileMenu" class="h-[100vh] w-full fixed top-[62px] left-[100%] z-30 bg-white hidden flex-col items-center border-t-[3px] border-orange-rgba">
+        <div id="MobileMenu" class="h-[100vh] w-full fixed top-[102px] sm:top-[108px] left-[100%] z-30 bg-white hidden flex-col items-center border-t-[2px] border-orange-rgba">
             <!-- Mobile Menus List -->
-            <RouterLink to="Sobre" class="h-[80px] w-full flex justify-center items-center mt-8" @click="MobileMenuToggle">Sobre</RouterLink>
-            <RouterLink to="Social" class="h-[80px] w-full flex justify-center items-center mt-8" @click="MobileMenuToggle">Impacto Social</RouterLink>
-            <RouterLink to="Contato" class="h-[80px] w-full flex justify-center items-center mt-8" @click="MobileMenuToggle">Contato</RouterLink>
+            <RouterLink to="Sobre" class="h-[100px] w-full flex justify-center items-center mt-12 italic text-[40px]" @click="MobileMenuToggle">Sobre</RouterLink>
+            <RouterLink to="Social" class="h-[100px] w-full flex justify-center items-center mt-12 italic text-[40px]" @click="MobileMenuToggle">Impacto Social</RouterLink>
+            <RouterLink to="Contato" class="h-[100px] w-full flex justify-center items-center mt-12 italic text-[40px]" @click="MobileMenuToggle">Contato</RouterLink>
         </div>
     </div>
 

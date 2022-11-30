@@ -8,7 +8,7 @@ module.exports = {
     extend: {
       colors: {
         "orange-rgba": 'rgba(255, 219, 174, 0.41)',
-        "orange-rgba-lighter": 'rgba(255, 219, 174, 0.20)',
+        "orange-rgba-lighter": 'rgba(255, 219, 174, 0.10)',
       },
       animation: {
         'NavHoverShow': 'NavHoverShow 0.4s',
