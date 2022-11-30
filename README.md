@@ -8,6 +8,7 @@ Deploy feito no [Heroku](https://cognicenter.herokuapp.com/).
 Dependências:
 * Vue
 * Tailwindcss
+* jQuery
 * Postcss
 * ESLint
 * Prettier
